@@ -1,4 +1,5 @@
 # consul
+
 ## Consul Cluster - Service Mesh
 
 ### Register service on client
@@ -20,6 +21,7 @@ services {
 ```
 
 Restart agent
+
 ```bash
 systemctl restart consul
 ```
@@ -27,14 +29,14 @@ systemctl restart consul
 On server node list catalog:
 
 ```bash
-consul
+consul catalog services
 ```
 
 ```bash
 dig @127.0.0.1 -p 80 web.service.consul
 ```
 
-### Register service on server node:
+### Register service on server node  
 
 create file:
 
@@ -53,18 +55,17 @@ services {
 }
 ```
 
-# register
+## register
 
 ```bash
 consul services register proxy.hcl
 ```
 
-# deregister
+## deregister  
 
 ```bash
 consul services deregister proxy.hcl
 ```
-
 
 ### Register service API
 
@@ -100,11 +101,10 @@ check
 dig @127.0.0.1 -p 8600 main.apache.service.consul
 ```
 
-**Deregister via API**
+## Deregister via API  
 
 ```bash
 curl -X PUT http://127.0.0.1:8500/v1/agent/service/deregister/apachepayload
 ```
 
-
-## Consul Connect is Service Mesh
+## Consul Connect is Service Mesh  
